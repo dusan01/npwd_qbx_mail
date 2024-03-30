@@ -1,26 +1,26 @@
-fx_version "cerulean"
-game "gta5"
+fx_version 'cerulean'
+game 'gta5'
 
-shared_scripts {
-    '@ox_lib/init.lua',
-    '@qbx_core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua',
-}
+description 'Qbox Mail app for NPWD'
+version '1.0.0'
+repository 'https://github.com/Qbox-project/npwd_qbx_mail'
 
 client_script 'client/client.lua'
 
+shared_script '@ox_lib/init.lua'
+
 server_script {
-    'server/server.lua',
     '@oxmysql/lib/MySQL.lua',
+    'server/server.lua',
 }
 
 ui_page 'web/dist/index.html'
 
 files {
-    'web/dist/index.html',
-    'web/dist/*.js',
+    'web/dist/**/*',
+    'locales/*.json'
 }
 
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
+provide 'npwd_qb_mail'
